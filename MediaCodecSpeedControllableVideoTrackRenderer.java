@@ -359,7 +359,7 @@ public class MediaCodecSpeedControllableVideoTrackRenderer extends MediaCodecTra
         }
 //        Log.i("test", "earlyUs: " + earlyUs);
 
-        if (getState() == TrackRenderer.STATE_STARTED && earlyUs < 200000 ) {
+        if (getState() == TrackRenderer.STATE_STARTED && earlyUs < 200000 / mCurrentSpeed) {
             if (earlyUs > 11000 / mCurrentSpeed) {
                 // We're a little too early to render the frame. Sleep until the frame can be rendered.
                 // Note: The 11ms threshold was chosen fairly arbitrarily.
